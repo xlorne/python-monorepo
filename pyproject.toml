@@ -1,0 +1,28 @@
+[project]
+name = "python-monorepo"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "lorne", email = "1991wangliang@gmail.com"},
+]
+dependencies = ["requests>=2.32.5"]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm.workspace]
+members = ["lib", "app"]
+
+[tool.pdm.scripts]
+run-app = "python -m app.main"
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "black>=25.9.0",
+    "isort>=7.0.0",
+    "mypy>=1.18.2",
+]
